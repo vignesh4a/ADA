@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet">  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@200&display=swap" rel="stylesheet">
+<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container hh">
+        <h1 class="display-4 hh">Sonnet generator</h1>
+        <p class="lead">A sonnet is a moment's monument,Memorial from the Soul's eternity.</p>
+      </div>
+    </div>
+
+<div class="b container">
+  <div class="bb container">
+    <p></p>
+      <div id="hello" class="" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div  id="hello1" class="" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div id="hello2" class="" role="status">
+        <span class="sr-only">Loading...</span>
+          <br>
+      </div>
+      <form  action="data" method="post">
+        {% csrf_token %}
+        {% for i in op %}
+          <p class="poem" >{{ i }}</p>
+        {% endfor %}
+        <br>
+        <input id="sub" type="submit" name="" class="btn btn-dark " value="Generate" onclick="setTimeout(on, 3)" >
+      </form>
+      <br>
+  </div>
+</div>
+<p></p>
+<br>
+<br>
+
+
+
+
+
+<style>
+  .jumbotron{
+  background-image: url({% static 'images/aaa.jpg' %});
+  background-repeat: no-repeat;
+}
+.b{
+text-align: center;
+}
+body{
+background-image: url({% static 'images/aaaa.jpg' %});
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+.bb{text-align: center;}
+.poem{
+font-family: 'Montserrat Alternates', sans-serif;
+  font-size:40px
+  color:rgb(255,255,255);
+}
+h1{
+  font-family: 'Great Vibes', cursive;
+  font-size:550px
+}
+.hh{
+  font-family: 'Great Vibes', cursive;
+  font-size:50px
+}
+</style>
+ <script>
+   function on(){
+     if (document.readyState === "complete") {
+        document.getElementById("hello").setAttribute("class", "");
+        document.getElementById("hello1").setAttribute("class", "");
+        document.getElementById("hello2").setAttribute("class", "");
+        document.getElementById("sub").disabled = false;
+    }
+     document.getElementById("hello").setAttribute("class", "spinner-grow text-dark");
+     document.getElementById("hello1").setAttribute("class", "spinner-grow text-dark");
+     document.getElementById("hello2").setAttribute("class", "spinner-grow text-dark");
+     document.getElementById("sub").disabled = true;
+   }
+ </script>
+
+  </body>
+</html>
